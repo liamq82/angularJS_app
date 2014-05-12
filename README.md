@@ -1,1 +1,3 @@
-Web application based on the Angular Seed app.
+Web application built using AngularJS.
+
+Forked the Angular Seed app for initial setup and configuration.
