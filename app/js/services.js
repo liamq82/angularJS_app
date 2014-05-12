@@ -2,8 +2,15 @@
 
 /* Services */
 
+var wearItServices = angular.module('wearItServices', []);
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
+wearItServices.factory('Item', [
+    function() {
+        return {
+        	type: undefined,
+        	leg: 32,
+        	waist: 32,
+        	color: 'blue'
+        };
+    }
+]);
