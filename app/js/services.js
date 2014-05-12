@@ -2,7 +2,7 @@
 
 /* Services */
 
-var wearItServices = angular.module('wearItServices', []);
+var wearItServices = angular.module('wearItServices', ['ngResource']);
 
 wearItServices.factory('Item', [
     function() {
@@ -14,3 +14,10 @@ wearItServices.factory('Item', [
         };
     }
 ]);
+
+wearItServices.factory('Inventory', ['$resource',
+  function($resource){
+    return $resource('inventory/:itemId.json', {}, {
+      query: {method:'GET', params:{itemId:'items'}, isArray:true}
+    });
+  }]);
