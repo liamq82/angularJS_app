@@ -1,0 +1,11 @@
+{"item1":{
+    "type": "jeans",
+    "waist": "32",
+    "leg": "32",
+    "color": "blue"
+},"item2":{
+    "type": "jeans",
+    "waist": "28",
+    "leg": "28",
+    "color": "black"
+}}

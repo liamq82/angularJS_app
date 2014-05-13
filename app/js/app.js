@@ -12,20 +12,24 @@ angular.module('myApp', [
 ]).
 config(['$routeProvider',
     function($routeProvider) {
-        $routeProvider.when('/view1', {
-            templateUrl: 'partials/partial1.html',
-            controller: 'MyCtrl1'
+        $routeProvider.when('/selectItem', {
+            templateUrl: 'partials/selectItem.html',
+            controller: 'SelectItemController'
         });
-        $routeProvider.when('/view2', {
-            templateUrl: 'partials/partial2.html',
-            controller: 'MyCtrl2'
+        $routeProvider.when('/selectSize', {
+            templateUrl: 'partials/selectSize.html',
+            controller: 'SelectSizeController'
         });
-        $routeProvider.when('/view3', {
+        $routeProvider.when('/inventory', {
             templateUrl: 'partials/partial3.html',
             controller: 'InventoryController'
         });
+        $routeProvider.when('/inventory/:type', {
+            templateUrl: 'partials/item.html',
+            controller: 'ItemController'
+        });
         $routeProvider.otherwise({
-            redirectTo: '/view1'
+            redirectTo: '/selectItem'
         });
     }
 ]);

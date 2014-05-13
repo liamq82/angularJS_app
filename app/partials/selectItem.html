@@ -1,0 +1,62 @@
+<div class='jumbotron'>
+    <h4>Radio &amp; Uncheckable Radio</h4>
+    <pre>{{radioModel || 'null'}}</pre>
+    <div class="btn-group">
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'jeans'">Jeans</label>
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'t-shirt'">T-Shirt</label>
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'jacket'">Jacket</label>
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'shoes'">Shoes</label>
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'runners'">Runners</label>
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'view inventory'">View inventory</label>
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'select item 1'">Select item 1</label>
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'select item 2'">Select item 2</label>
+    </div>
+    <div id='select_item_go_button'>
+        <a href="#/selectSize">
+            <button class="btn btn-default btn-sm" ng-click="selectTrousers()">Next</button>
+        </a>
+    </div>
+</div>
+<div class='jumbotron'>
+    <p>Select an item</p>
+    <div id='jeans'>
+        <a href="#/selectSize">
+            <button class="btn btn-default btn-sm" ng-click="selectTrousers()">Jeans</button>
+        </a>
+    </div>
+    <div id='t_shirt'>
+        <a href="#/selectSize">
+            <button class="btn btn-default btn-sm" ng-click="selectTrousers()">T-Shirt</button>
+        </a>
+    </div>
+    <div id='jacket'>
+        <a href="#/selectSize">
+            <button class="btn btn-default btn-sm" ng-click="selectTrousers()">Jacket</button>
+        </a>
+    </div>
+    <div id='shoes'>
+        <a href="#/selectSize">
+            <button class="btn btn-default btn-sm" ng-click="selectTrousers()">Shoes</button>
+        </a>
+    </div>
+    <div id='runners'>
+        <a href="#/selectSize">
+            <button class="btn btn-default btn-sm" ng-click="selectTrousers()">Runners</button>
+        </a>
+    </div>
+    <div>
+        <a href="#/inventory">
+            <button class="btn btn-default btn-sm" ng-click="viewInventory()">View inventory</button>
+        </a>
+    </div>
+    <div>
+        <a href="#/inventory/item1">
+            <button class="btn btn-default btn-sm" ng-click="viewInventory()">Select item 1</button>
+        </a>
+    </div>
+    <div>
+        <a href="#/inventory/item2">
+            <button class="btn btn-default btn-sm" ng-click="viewInventory()">Select item 2</button>
+        </a>
+    </div>
+</div>

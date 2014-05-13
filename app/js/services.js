@@ -17,7 +17,7 @@ wearItServices.factory('Item', [
 
 wearItServices.factory('Inventory', ['$resource',
   function($resource){
-    return $resource('inventory/:itemId.json', {}, {
-      query: {method:'GET', params:{itemId:'items'}, isArray:true}
+    return $resource('inventory/:type.json', {}, {
+      query: {method:'GET', params:{type:'inventory'}, isArray:true},
     });
   }]);

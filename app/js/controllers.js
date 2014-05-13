@@ -3,25 +3,36 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-    .controller('MyCtrl1', ['$scope', 'Item',
+    .controller('SelectItemController', ['$scope', 'Item',
         function($scope, Item) {
+            $scope.radioModel = 'jeans';
             $scope.item = Item;
             $scope.selectTrousers = function() {
-                $scope.item.type = 'trousers';
+                $scope.item.type = $scope.radioModel;
             };
         }
     ])
-    .controller('MyCtrl2', ['$scope', 'Item',
+    .controller('SelectSizeController', ['$scope', 'Item',
         function($scope, Item) {
             $scope.item = Item;
-            console.log('Select item controller....');
+            $scope.itemType = $scope.item.type;
+            console.log('select size controller says...');
             console.log($scope.item);
         }
-    ]).controller('InventoryController', ['$scope', 'Item', 'Inventory',
-        function($scope, Item, Inventory) {
+    ]).controller('InventoryController', ['$scope', 'Inventory',
+        function($scope, Inventory) {
             $scope.inventory = Inventory.query();
-            $scope.item = Item;
-            console.log('Inventory controller...');
+            // $scope.item = Item;
+            console.log('Inventory controller showing inventory');
             console.log($scope.inventory);
+        }
+    ]).controller('ItemController', ['$scope', '$routeParams', 'Inventory',  'Item',
+        function($scope, $routeParams, Inventory, Item) {
+            $scope.item = Inventory.get({
+                type: $routeParams.type
+            }, function(inventory) {
+                console.log('Item controller says...');
+                console.log(inventory);
+            });
         }
     ]);
