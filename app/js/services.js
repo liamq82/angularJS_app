@@ -7,7 +7,7 @@ var wearItServices = angular.module('wearItServices', ['ngResource']);
 wearItServices.factory('Item', [
     function() {
         return {
-        	type: undefined,
+        	type: 'jeans',
         	leg: 32,
         	waist: 32,
         	color: 'blue'
@@ -17,7 +17,7 @@ wearItServices.factory('Item', [
 
 wearItServices.factory('Inventory', ['$resource',
   function($resource){
-    return $resource('inventory/:type.json', {}, {
-      query: {method:'GET', params:{type:'inventory'}, isArray:true},
-    });
+    return $resource('inventory/:type.json', {}, {get: {method:'GET', isArray:true},});
+    // return $resource('inventory/:type.json', {}, {query: {method:'GET', params:{type:'inventory'}, isArray:true},});
+
   }]);

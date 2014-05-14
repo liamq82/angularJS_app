@@ -12,24 +12,31 @@ angular.module('myApp.controllers', [])
     .controller('SelectSizeController', ['$scope', 'Item',
         function($scope, Item) {
             $scope.item = Item;
-            $scope.itemType = $scope.item.type;
-            console.log('select size controller says...');
-            console.log($scope.item);
         }
     ]).controller('InventoryController', ['$scope', 'Inventory',
         function($scope, Inventory) {
-            $scope.inventory = Inventory.query();
-            // $scope.item = Item;
-            console.log('Inventory controller showing inventory');
-            console.log($scope.inventory);
+            $scope.items = Inventory.get();
         }
     ]).controller('ItemController', ['$scope', '$routeParams', 'Inventory', 'Item',
         function($scope, $routeParams, Inventory, Item) {
-            $scope.item = Inventory.get({
+            // $scope.items = [{}];
+            /*$scope.items = [{
+                type: 'jeans',
+                leg: 32,
+                waist: 32,
+                color: 'blue'
+            }, {
+                type: 'jeans',
+                leg: 28,
+                waist: 28,
+                color: 'blue'
+            }];*/
+            $scope.retrievedItems = Inventory.get({
                 type: $routeParams.type
-            }, function(inventory) {
-                console.log('Item controller says...');
-                console.log(inventory);
+            }, function(items) {
+/*                $scope.test= items[0].item1.type;
+                $scope.items = items;
+                console.log(items[0]);*/
             });
         }
     ]);

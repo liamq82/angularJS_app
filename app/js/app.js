@@ -25,7 +25,7 @@ config(['$routeProvider',
             controller: 'InventoryController'
         });
         $routeProvider.when('/inventory/:type', {
-            templateUrl: 'partials/item.html',
+            templateUrl: 'partials/items.html',
             controller: 'ItemController'
         });
         $routeProvider.otherwise({

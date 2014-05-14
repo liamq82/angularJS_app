@@ -1,4 +1,4 @@
-{"item1":{
+[{"item1":{
     "type": "jeans",
     "waist": "32",
     "leg": "32",
@@ -8,4 +8,4 @@
     "waist": "28",
     "leg": "28",
     "color": "black"
-}}
+}}]
