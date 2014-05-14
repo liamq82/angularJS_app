@@ -5,11 +5,8 @@
 angular.module('myApp.controllers', [])
     .controller('SelectItemController', ['$scope', 'Item',
         function($scope, Item) {
-            $scope.radioModel = 'jeans';
             $scope.item = Item;
-            $scope.selectTrousers = function() {
-                $scope.item.type = $scope.radioModel;
-            };
+            $scope.item.type = 'jeans'
         }
     ])
     .controller('SelectSizeController', ['$scope', 'Item',
@@ -26,7 +23,7 @@ angular.module('myApp.controllers', [])
             console.log('Inventory controller showing inventory');
             console.log($scope.inventory);
         }
-    ]).controller('ItemController', ['$scope', '$routeParams', 'Inventory',  'Item',
+    ]).controller('ItemController', ['$scope', '$routeParams', 'Inventory', 'Item',
         function($scope, $routeParams, Inventory, Item) {
             $scope.item = Inventory.get({
                 type: $routeParams.type
