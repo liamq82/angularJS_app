@@ -13,9 +13,17 @@ angular.module('myApp.controllers', [])
         function($scope, Item) {
             $scope.item = Item;
         }
-    ]).controller('InventoryController', ['$scope', 'Inventory',
-        function($scope, Inventory) {
-            $scope.items = Inventory.get();
+    ]).controller('InventoryController', ['$scope',
+        function($scope) {
+
+            $scope.inventory = [];
+
+            $scope.addItem = function(stuff) {
+                $scope.myCopy = angular.copy(stuff);
+                $scope.item = {};
+                $scope.inventory.push($scope.myCopy);
+            };
+
         }
     ]).controller('ItemController', ['$scope', '$routeParams', 'Inventory', 'Item',
         function($scope, $routeParams, Inventory, Item) {

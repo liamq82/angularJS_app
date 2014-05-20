@@ -1,1 +1,70 @@
-<p>Inventory</p>
+<div class='jumbotron'>
+    <h1>Inventory</h1>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="input-group">
+                <span class="input-group-addon">Type</span>
+                <input ng-model="item.type" type="text" class="form-control" placeholder="Type">
+            </div>
+            </br>
+            <div class="input-group">
+                <span class="input-group-addon">Color</span>
+                <input ng-model="item.color" type="text" class="form-control" placeholder="Color">
+            </div>
+            <!-- /input-group -->
+        </div>
+        <!-- /.col-lg-6 -->
+        <div class="col-lg-4">
+            <div class="input-group">
+                <span class="input-group-addon">Style</span>
+                <input ng-model="item.style" type="text" class="form-control" placeholder="Style">
+            </div>
+            </br>
+            <div class="input-group">
+                <span class="input-group-addon">Price</span>
+                <input ng-model="item.price" type="text" class="form-control" placeholder="Price">
+            </div>
+            <!-- /input-group -->
+        </div>
+        <!-- /.col-lg-6 -->
+        <div class="col-lg-4">
+            <div class="input-group">
+                <span class="input-group-addon">Description</span>
+                <input ng-model="item.description" type="text" class="form-control" placeholder="Description">
+            </div>
+            </br>
+            <div class="input-group">
+                <span class="input-group-addon">Quantity</span>
+                <input ng-model="item.quantity" type="text" class="form-control" placeholder="Quantity">
+            </div>
+            <!-- /input-group -->
+        </div>
+    </div>
+    <div>
+        </br>
+        <button ng-click='addItem(item)' type="button" class="btn btn-default">Submit</button>
+    </div>
+</div>
+</div>
+<div class='jumbotron'>
+    <h1>Stock</h1>
+    <table class="table">
+        <tr>
+            <th>Type</th>
+            <th>Style</th>
+            <th>Color</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        <tr ng-repeat="stuff in inventory track by $index">
+            <td>{{stuff.type}}</td>
+            <td>{{stuff.style}}</td>
+            <td>{{stuff.color}}</td>
+            <td>{{stuff.description}}</td>
+            <td>{{stuff.price}}</td>
+            <td>{{stuff.quantity}}</td>
+        </tr>
+    </table>
+</div>

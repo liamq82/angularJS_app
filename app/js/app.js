@@ -21,7 +21,7 @@ config(['$routeProvider',
             controller: 'SelectSizeController'
         });
         $routeProvider.when('/inventory', {
-            templateUrl: 'partials/partial3.html',
+            templateUrl: 'partials/inventory.html',
             controller: 'InventoryController'
         });
         $routeProvider.when('/inventory/:type', {
@@ -29,7 +29,7 @@ config(['$routeProvider',
             controller: 'ItemController'
         });
         $routeProvider.otherwise({
-            redirectTo: '/selectItem'
+            redirectTo: '/inventory'
         });
     }
 ]);

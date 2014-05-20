@@ -15,6 +15,12 @@ wearItServices.factory('Item', [
     }
 ]);
 
+wearItServices.factory('InventoryData', [
+    function() {
+        return {};
+    }
+]);
+
 wearItServices.factory('Inventory', ['$resource',
   function($resource){
     return $resource('inventory/:type.json', {}, {get: {method:'GET', isArray:true},});
