@@ -59,12 +59,12 @@
             <th>Quantity</th>
         </tr>
         <tr ng-repeat="stuff in inventory track by $index">
-            <td>{{stuff.type}}</td>
-            <td>{{stuff.style}}</td>
-            <td>{{stuff.color}}</td>
-            <td>{{stuff.description}}</td>
-            <td>{{stuff.price}}</td>
-            <td>{{stuff.quantity}}</td>
+            <td class='type'>{{stuff.type}}</td>
+            <td class='style'>{{stuff.style}}</td>
+            <td class='color'>{{stuff.color}}</td>
+            <td class='description'>{{stuff.description}}</td>
+            <td class='price'>{{stuff.price}}</td>
+            <td class='quantity'>{{stuff.quantity}}</td>
         </tr>
     </table>
 </div>
