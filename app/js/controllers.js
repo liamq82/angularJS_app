@@ -22,6 +22,7 @@ angular.module('myApp.controllers', [])
                 $scope.myCopy = angular.copy(stuff);
                 $scope.item = {};
                 $scope.inventory.push($scope.myCopy);
+                return $scope.myCopy;
             };
 
         }
