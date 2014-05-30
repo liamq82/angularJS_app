@@ -58,7 +58,39 @@
             <th>Price</th>
             <th>Quantity</th>
         </tr>
-        <tr ng-repeat="stuff in inventory track by $index">
+        <tr>
+            <th>
+                <div class="input-group">
+                    <input ng-model="search.type" type="text" class="form-control" placeholder="filter">
+                </div>
+            </th>
+            <th>
+                <div class="input-group">
+                    <input ng-model="search.style" type="text" class="form-control" placeholder="filter">
+                </div>
+            </th>
+            <th>
+                <div class="input-group">
+                    <input ng-model="search.color" type="text" class="form-control" placeholder="filter">
+                </div>
+            </th>
+            <th>
+                <div class="input-group">
+                    <input ng-model="search.description" type="text" class="form-control" placeholder="filter">
+                </div>
+            </th>
+            <th>
+                <div class="input-group">
+                    <input ng-model="search.price" type="text" class="form-control" placeholder="filter">
+                </div>
+            </th>
+            <th>
+                <div class="input-group">
+                    <input ng-model="search.quantity" type="text" class="form-control" placeholder="filter">
+                </div>
+            </th>
+        </tr>
+        <tr ng-repeat="stuff in inventory | filter:search">
             <td class='type'>{{stuff.type}}</td>
             <td class='style'>{{stuff.style}}</td>
             <td class='color'>{{stuff.color}}</td>

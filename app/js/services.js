@@ -7,10 +7,10 @@ var wearItServices = angular.module('wearItServices', ['ngResource']);
 wearItServices.factory('Item', [
     function() {
         return {
-        	type: 'jeans',
-        	leg: 32,
-        	waist: 32,
-        	color: 'blue'
+            type: 'jeans',
+            leg: 32,
+            waist: 32,
+            color: 'blue'
         };
     }
 ]);
@@ -22,8 +22,42 @@ wearItServices.factory('InventoryData', [
 ]);
 
 wearItServices.factory('Inventory', ['$resource',
-  function($resource){
-    return $resource('inventory/:type.json', {}, {get: {method:'GET', isArray:true},});
-    // return $resource('inventory/:type.json', {}, {query: {method:'GET', params:{type:'inventory'}, isArray:true},});
+    function($resource) {
+        return $resource('http://localhost:8080/inventory/item', {}, {
+            headers: {
+                // 'Access-Control-Allow-Origin': '*'
+            }
+        }, {
+            get: {
+                method: 'GET',
+                isArray: true
+            },
+        });
 
-  }]);
+    }
+]);
+
+wearItServices.factory('TestAPI', ['$resource',
+    function($resource) {
+        return $resource('http://localhost:8080/inventory/item', {}, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }, {
+            get: {
+                method: 'GET',
+                isArray: true
+            },
+            save: {
+                method: 'POST'
+            },
+            test: {
+                method: 'POST',
+                headers: {
+                    "Access-Control-Allow-Origin": true
+                }
+            }
+        });
+
+    }
+]);

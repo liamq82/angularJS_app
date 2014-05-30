@@ -28,6 +28,10 @@ config(['$routeProvider',
             templateUrl: 'partials/items.html',
             controller: 'ItemController'
         });
+        $routeProvider.when('/testing', {
+            templateUrl: 'partials/test_page.html',
+            controller: 'TestController'
+        });
         $routeProvider.otherwise({
             redirectTo: '/inventory'
         });
