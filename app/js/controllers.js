@@ -23,22 +23,25 @@ angular.module('myApp.controllers', [])
     ]).controller('InventoryController', ['$scope', 'Inventory',
         function($scope, Inventory) {
 
+            $scope.item = {};
+
             $scope.inventory = Inventory.query(function() {
                 var items = [];
                 angular.forEach($scope.inventory, function(item) {
                     this.push(item);
                 }, items);
-                console.log(items);
             });
 
             $scope.addItem = function(stuff) {
-                var data = new Inventory();
-                data.type = 'wallet';
-                data.$save();
-/*                var data = {"type": "hat"};
-                var postData = Inventory.save(data, function() {
-                    console.log(postData);
-                });*/
+                var item = new Inventory();
+                item.type = $scope.item.type;
+                item.color = $scope.item.color;
+                item.style = $scope.item.style;
+                item.price = $scope.item.price;
+                item.description = $scope.item.description;
+                item.quantity = $scope.item.quantity;
+                item.$save();
+                $scope.item = {};
             };
 
         }
