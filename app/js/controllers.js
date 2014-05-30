@@ -12,7 +12,6 @@ angular.module('myApp.controllers', [])
                 $scope.testApiResponse = TestAPI.get({}, function() {
                     console.log('response ' + $scope.testApiResponse.message);
                 });
-                // console.log($scope.testApiResponse);
             }
         }
     ])
@@ -20,8 +19,8 @@ angular.module('myApp.controllers', [])
         function($scope, Item) {
             $scope.item = Item;
         }
-    ]).controller('InventoryController', ['$scope', 'Inventory',
-        function($scope, Inventory) {
+    ]).controller('InventoryController', ['$scope', 'Inventory', 'ItemResource',
+        function($scope, Inventory, ItemResource) {
 
             $scope.item = {};
 
@@ -40,8 +39,17 @@ angular.module('myApp.controllers', [])
                 item.price = $scope.item.price;
                 item.description = $scope.item.description;
                 item.quantity = $scope.item.quantity;
+                console.log(item);
                 item.$save();
                 $scope.item = {};
+            };
+
+            $scope.deleteItem = function(id) {
+                var itemId = id;
+                ItemResource.delete({id: itemId}, function(res){
+                    console.log(res);
+                });
+
             };
 
         }

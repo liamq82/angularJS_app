@@ -12,10 +12,27 @@ app.use(bodyParser());
 var port = process.env.PORT || 8080; // set our port
 
 var router = express.Router(); // get an instance of the express Router
+router.route('/item/:id')
+
+.delete(function(req, res, next) {
+    var id = req.params.id;
+    console.log(id);
+    Item.findByIdAndRemove(id, function(err, item) {
+        if (err) {
+            res.send(err);
+        } else {
+            if (item) {
+                res.json(item);
+            } else {
+                res.send('item not found');
+            }
+        }
+    })
+});
+
 router.route('/item')
 
 .post(function(req, res) {
-    res.setHeader("Access-Control-Allow-Origin", "*");
     var item = new Item();
     item.type = req.body.type;
     item.color = req.body.color;
@@ -37,7 +54,6 @@ router.route('/item')
     });
 
 }).get(function(req, res) {
-    res.setHeader("Access-Control-Allow-Origin", "*");
     Item.find(function(err, items) {
         if (err) {
             res.send(err);
@@ -45,20 +61,6 @@ router.route('/item')
             res.json(items);
         }
     });
-}).delete(function(req, res, next) {
-    var id = req.body.id;
-    Item.findByIdAndRemove(id, function(err, item) {
-        if (err) {
-            res.send(err);
-        } else {
-            if (item) {
-                res.json(item);
-            } else {
-                res.send('item not found');
-            }
-        }
-    }) // executes
-
 });
 
 app.use('/inventory', router);

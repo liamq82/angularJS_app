@@ -23,41 +23,13 @@ wearItServices.factory('InventoryData', [
 
 wearItServices.factory('Inventory', ['$resource',
     function($resource) {
-        return $resource('http://localhost:8080/inventory/item', {}, {
-            headers: {
-                // 'Access-Control-Allow-Origin': '*'
-            }
-        }, {
-            get: {
-                method: 'GET',
-                isArray: true
-            },
-        });
+        return $resource('http://localhost:8080/inventory/item');
 
     }
 ]);
 
-wearItServices.factory('TestAPI', ['$resource',
+wearItServices.factory('ItemResource', ['$resource',
     function($resource) {
-        return $resource('http://localhost:8080/inventory/item', {}, {
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-        }, {
-            get: {
-                method: 'GET',
-                isArray: true
-            },
-            save: {
-                method: 'POST'
-            },
-            test: {
-                method: 'POST',
-                headers: {
-                    "Access-Control-Allow-Origin": true
-                }
-            }
-        });
-
+        return $resource('http://localhost:8080/inventory/item/:id');
     }
 ]);

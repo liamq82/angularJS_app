@@ -57,6 +57,7 @@
             <th>Description</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th>Delete</th>
         </tr>
         <tr>
             <th>
@@ -89,6 +90,7 @@
                     <input ng-model="search.quantity" type="text" class="form-control" placeholder="filter">
                 </div>
             </th>
+            <th></th>
         </tr>
         <tr ng-repeat="stuff in inventory | filter:search">
             <td class='type'>{{stuff.type}}</td>
@@ -97,6 +99,9 @@
             <td class='description'>{{stuff.description}}</td>
             <td class='price'>{{stuff.price}}</td>
             <td class='quantity'>{{stuff.quantity}}</td>
+            <td class='quantity'>
+                <button ng-click='deleteItem(stuff._id)' type="button" class="btn btn-default">Delete</button>
+            </td>
         </tr>
     </table>
 </div>
