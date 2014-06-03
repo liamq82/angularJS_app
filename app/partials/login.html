@@ -1,0 +1,24 @@
+<div class='jumbotron'>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="input-group">
+                <span class="input-group-addon">Username</span>
+                <input ng-model="username" type="text" class="form-control" placeholder="enter username">
+            </div>
+            <!-- /input-group -->
+        </div>
+        <!-- /.col-lg-6 -->
+        <div class="col-lg-4">
+            <div class="input-group">
+                <span class="input-group-addon">Password</span>
+                <input ng-model="password" type="text" class="form-control" placeholder="enter password">
+            </div>
+            <!-- /input-group -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+    <div>
+        </br>
+        <button ng-click='authenticate(username, password)' type="button" class="btn btn-default">Authenticate</button>
+    </div>
+</div>

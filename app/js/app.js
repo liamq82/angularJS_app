@@ -32,8 +32,17 @@ config(['$routeProvider',
             templateUrl: 'partials/test_page.html',
             controller: 'TestController'
         });
+        $routeProvider.when('/login', {
+            templateUrl: 'partials/login.html',
+            controller: 'LoginController'
+        });
+        $routeProvider.when('/addUser', {
+            templateUrl: 'partials/addUser.html',
+            controller: 'AddUserController'
+        });
         $routeProvider.otherwise({
             redirectTo: '/inventory'
         });
+
     }
 ]);

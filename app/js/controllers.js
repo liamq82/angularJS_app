@@ -46,7 +46,9 @@ angular.module('myApp.controllers', [])
 
             $scope.deleteItem = function(id) {
                 var itemId = id;
-                ItemResource.delete({id: itemId}, function(res){
+                ItemResource.delete({
+                    id: itemId
+                }, function(res) {
                     console.log(res);
                 });
 
@@ -60,6 +62,36 @@ angular.module('myApp.controllers', [])
             }, function(items) {
                 $scope.items = items;
                 $scope.type = $routeParams.type;
+            });
+        }
+    ]).controller('LoginController', ['$scope', '$routeParams', 'LoginResource',
+        function($scope, $routeParams, LoginResource) {
+            $scope.username = '';
+            $scope.password = '';
+            $scope.authenticate = function(username, password) {
+                var login = new LoginResource();
+                login.username = username;
+                login.password = password;
+                login.$save();
+            };
+        }
+    ]).controller('AddUserController', ['$scope', '$routeParams', 'AddUserResource', 'UsersResource',
+        function($scope, $routeParams, AddUserResource, UsersResource) {
+            $scope.username = '';
+            $scope.password = '';
+            $scope.addUser = function(username, password) {
+                var addUser = new AddUserResource();
+                addUser.username = username;
+                addUser.password = password;
+                addUser.$save();
+            };
+            $scope.user = {};
+
+            $scope.users = UsersResource.query(function() {
+                var users = [];
+                angular.forEach($scope.users, function(user) {
+                    this.push(user);
+                }, users);
             });
         }
     ]).controller('TestController', ['$scope', '$http', 'TestAPI',

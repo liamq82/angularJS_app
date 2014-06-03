@@ -33,3 +33,21 @@ wearItServices.factory('ItemResource', ['$resource',
         return $resource('http://localhost:8080/inventory/item/:id');
     }
 ]);
+
+wearItServices.factory('LoginResource', ['$resource',
+    function($resource) {
+        return $resource('http://localhost:8080/login');
+    }
+]);
+
+wearItServices.factory('AddUserResource', ['$resource',
+    function($resource) {
+        return $resource('http://localhost:8080/addUser');
+    }
+]);
+
+wearItServices.factory('UsersResource', ['$resource',
+    function($resource) {
+        return $resource('http://localhost:8080/users');
+    }
+]);
