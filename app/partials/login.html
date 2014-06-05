@@ -19,6 +19,19 @@
     </div>
     <div>
         </br>
-        <button ng-click='authenticate(username, password)' type="button" class="btn btn-default">Authenticate</button>
+        <button ng-click='authenticate(username, password)' type="button" class="btn btn-default">{{loginButton}}</button>
     </div>
+</div>
+
+<div class='jumbotron'>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="input-group">
+                <span class="input-group-addon">item type</span>
+                <input ng-model="item_type" type="text" class="form-control" placeholder="item type">
+            </div>
+        </div>
+    </div>
+    <br>
+    <button ng-click='getItem(item_id)' type="button" class="btn btn-default">Get item with id '538715e2ccc534d814000001'</button>
 </div>

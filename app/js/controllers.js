@@ -64,15 +64,34 @@ angular.module('myApp.controllers', [])
                 $scope.type = $routeParams.type;
             });
         }
-    ]).controller('LoginController', ['$scope', '$routeParams', 'LoginResource',
-        function($scope, $routeParams, LoginResource) {
+    ]).controller('LoginController', ['$scope', '$routeParams', 'LoginResource', '$location', 'ItemResource',
+        function($scope, $routeParams, LoginResource, location, ItemResource) {
+            $scope.loginButton = 'Login';
             $scope.username = '';
             $scope.password = '';
+            $scope.item_type = '';
             $scope.authenticate = function(username, password) {
                 var login = new LoginResource();
                 login.username = username;
                 login.password = password;
-                login.$save();
+                login.$save(function(response) {
+                    $scope.loginButton = response.message;
+                    // location.path(response.url)
+                });
+            };
+
+            $scope.getItem = function(item_id) {
+                var itemId = '538715e2ccc534d814000001';
+                ItemResource.query({
+                    id: itemId
+                }, function(res) {
+                    if (res[0].type) {
+                        $scope.item_type = res[0].type;
+                    }
+                    if (res[0].message) {
+                        $scope.item_type = res[0].message;
+                    }
+                });
             };
         }
     ]).controller('AddUserController', ['$scope', '$routeParams', 'AddUserResource', 'UsersResource',

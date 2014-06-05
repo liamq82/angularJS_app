@@ -17,7 +17,8 @@
         "body-parser": "~1.0.1",
         "passport": "*",
         "passport-local": "*",
-        "cookie-parser": "*"
+        "cookie-parser": "*",
+        "express-session": "*"
     },
     "scripts": {
         "postinstall": "bower install",
